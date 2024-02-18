@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body style="background-color: #E76DE5;">
+	<center><a href="add_form">Add Record</a></center>
+	<center><form>
+		<table border="2">
+		<tr>
+			<th>employeeName</th>
+			<th>employeeAddress</th>
+			<th>employeePhone</th>
+			<th>employeeSalary</th>
+			<th>Action1</th>
+			<th>Action2</th>
+		</tr>
+		<tr th:each="temp:${Employees}">
+			<td th:text="${temp.employeeName}"></td>
+			<td th:text="${temp.employeeAddress}"></td>
+			<td th:text="${temp.employeePhone}"></td>
+			<td th:text="${temp.employeeSalary}"></td>
+			<td> <a th:href="@{update_page(id=${temp.id})}">Update</a></td>
+			<td><a th:href="@{delete_page(id=${temp.id})}">delete</a></td>
+		</tr>
+	</table>
+	</form></center>
+</body>
+</html>
